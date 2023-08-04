@@ -21,7 +21,7 @@ import websocket
 import max6675
 
 # Constants for your Artisan Roast server details
-WEBSOCKET_SERVER_URL = "ws://your-artisan-roast-server.com/ws"
+WEBSOCKET_SERVER_URL = "ws://192.168.1.105:80/ws"
 WEBSOCKET_PORT = 80
 
 
@@ -57,14 +57,11 @@ def on_close(ws, close_status_code, close_msg):
     print("WebSocket connection closed.")
 
 def read_bean_temperature():
-    # Implement your code to read bean temperature data from the BT sensor
-    bt_temperature = max6675.read_temp()  # You'll need to adapt this based on your max6675.py library
+    bt_temperature = max6675.read_temp()
     return bt_temperature
 
 def read_environment_temperature():
-    # Implement your code to read environment temperature data from the ET sensor
-    # Return a sample value for demonstration purposes
-    et_temperature = 22.5
+    et_temperature = max6675.read_temp()
     return et_temperature
 
 def send_data(request_id, bt_temperature, et_temperature):
