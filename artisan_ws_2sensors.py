@@ -72,8 +72,8 @@ def send_data(request_id, bt_temperature, et_temperature):
     response_data = {
         "id": request_id,
         "data": {
-            "bean_temp": bt_temperature,
-            "environment_temp": et_temperature
+            "BT": bt_temperature,
+            "ET": et_temperature
         }
     }
     message = json.dumps(response_data)
